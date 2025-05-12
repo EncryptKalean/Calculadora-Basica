@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+        background-repeat: no-repeat;
+        text-decoration: none;
+        list-style: none;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      body {
+        background-color: rgb(47, 255, 168);
+      }
+      .calc {
+        max-width: 500px;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        margin: 20px auto;
+      }
+      .visor {
+        display: flex;
+        border-bottom: 5px solid grey;
+        height: 150px;
+        text-align: right;
+        align-items: center;
+      }
+      p {
+        font-size: 25px;
+        padding: 10px 20px;
+        width: 100%;
+      }
+      .remover {
+        width: 50px;
+        height: 100%;
+        background-color: red;
+      }
+      ul {
+        background-color: rgba(255, 255, 255, 0.945);
+        color: rgb(0, 0, 0);
+        display: flex;
+        flex-wrap: wrap;
+      }
+      li {
+        cursor: pointer;
+        border: 1px solid rgb(0, 0, 0);
+        font-size: 20px;
+        height: 90px;
+        width: calc(100% / 3);
+        text-align: center;
+        align-content: center;
+      }
+      li:hover {
+        background-color: rgb(209, 209, 209);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calc">
+      <div class="visor">
+        <p id="tela"></p>
+        <li class="remover">&lt;</li>
+      </div>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>-</li>
+        <li>0</li>
+        <li>+</li>
+        <li>/</li>
+        <li>=</li>
+        <li>c</li>
+      </ul>
+    </div>
+    <script>
+      var equação = "",
+        ultimaEqua = "",
+        visor = document.getElementById("tela");
+
+      document.querySelectorAll("li").forEach((t) => {
+        t.addEventListener("click", () => {
+          let tecla = t.textContent;
+          if (tecla == "<") {
+            equação = equação.slice(0, -1);
+          } 
+          else if (tecla == "=" && equação != "") {
+            ultimaEqua = eval(equação);
+            equação = "";
+            visor.textContent = ultimaEqua;
+          } 
+          else if (tecla == "+" && equação == "") {
+            equação = ultimaEqua + tecla;
+          } 
+          else if (tecla != "c" && tecla != "=") {
+            equação += tecla;
+          } 
+          else if (tecla == "c") {
+            equação = "";
+          }
+          if (tecla != "=") {
+            visor.textContent = equação;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
