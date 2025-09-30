@@ -1,36 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora</title>
+    <title>Calculadora - EncryptKalean</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="calc">
-      <div class="visor">
-        <p id="tela"></p>
-        <li class="remover">&lt;</li>
+    <section id="calc">
+
+      <div id="visor">
+        <h1 id="tela"></h1>
+        <li especial="remover" id="remover">&lt;</li>
       </div>
+
       <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>-</li>
-        <li>0</li>
-        <li>+</li>
-        <li>/</li>
-        <li>=</li>
-        <li>c</li>
+        <li numero="1">1</li>
+        <li numero="2">2</li>
+        <li numero="3">3</li>
+        <li numero="4">4</li>
+        <li numero="5">5</li>
+        <li numero="6">6</li>
+        <li numero="7">7</li>
+        <li numero="8">8</li>
+        <li numero="9">9</li>
+        <li operador="-">-</li>
+        <li numero="0">0</li>
+        <li operador="+">+</li>
+        <li operador="/">/</li>
+        <li especial="=">=</li>
+        <li especial="c">c</li>
       </ul>
-    </div>
+
+    </section>
   </body>
   <script src="script.js"></script>
 </html>
